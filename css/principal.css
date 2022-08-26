@@ -160,8 +160,8 @@ nav {
 }
 
 .contenedor-carrusel .caja {
-    width: 227px;
-    height: 127px;
+    width: 170px;
+    /* height: 127px; */
     margin: 0 5px;
 }
 
