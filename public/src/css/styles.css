@@ -1,0 +1,74 @@
+/*.screen-reader-text {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}*/
+.authLinks.redButton {
+    background-color: #e50914;
+    line-height: normal;
+    padding: 7px 17px;
+    font-weight: 400;
+    font-size: 1rem;
+    float: right;
+}
+.netflix-sans-font-loaded {
+    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+.our-story-cards {
+    margin: 0 auto;
+}
+.our-story-card {
+    position: relative;
+    border-bottom: 8px solid #222;
+    padding: 50px 5%;
+    margin-bottom: 0;
+    background: 0 0;
+    color: #fff;
+}
+.hero-card .concord-img-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+body{
+    display: block;
+}
+.our-story-container--has-language-selector .our-story-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -moz-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+    height: auto;
+}
+.our-story-card-title {
+    font-size: 3.125rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+.our-story-card-subtitle, .our-story-card-text {
+    font-size: 1.625rem;
+    font-weight: 400;
+}
+
+
