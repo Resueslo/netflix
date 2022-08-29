@@ -14,3 +14,47 @@ async function obtenerUltimasPeliculas() {
         return []
     }
 }
+
+async function obtenerDetallePelicula(id_movie) {
+    let movieUrl = `${URL_API}/movie/${id_movie}?api_key=${API_KEY}&language=en-US`;
+
+    try {
+        let response = await axios.get(movieUrl);
+        return response.data
+    } catch (e) {
+        return []
+    }
+}
+
+async function obtenerCreditosPelicula(id_movie) {
+    let movieUrl = `${URL_API}/movie/${id_movie}/credits?api_key=${API_KEY}&language=en-US`;
+
+    try {
+        let response = await axios.get(movieUrl);
+        return response.data
+    } catch (e) {
+        return []
+    }
+}
+
+async function obtenerRecomendacionesPeliculas(id_movie) {
+    let movieUrl = `${URL_API}/movie/${id_movie}/recommendations?api_key=${API_KEY}&language=en-US`;
+
+    try {
+        let response = await axios.get(movieUrl);
+        return response.data.results
+    } catch (e) {
+        return []
+    }
+}
+
+async function obtenerFechasYCertificacion(id_movie) {
+    let movieUrl = `${URL_API}/movie/${id_movie}/release_dates?api_key=${API_KEY}&language=en-US`;
+
+    try {
+        let response = await axios.get(movieUrl);
+        return response.data.results
+    } catch (e) {
+        return []
+    }
+}

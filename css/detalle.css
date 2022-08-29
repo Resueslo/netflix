@@ -1,0 +1,81 @@
+body {
+    background-color: #141414;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+.banner {
+    opacity: .7;
+}
+
+.p-relative {
+    position: relative;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.text-gray {
+    color: #ffffff8c;
+}
+
+.titulo-pelicula {
+    position: absolute;
+    bottom: 25%;
+    left: 10%;
+    color: #fff;
+    font-size: 9vw;
+    line-height: normal;
+    text-shadow: 0px 0px 2px black;
+}
+
+.descripcion {
+    color: #fff;
+}
+
+.contenedor-actores {
+    /* display: flex; */
+}
+
+.img-actor {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;    
+    margin: 0 5px 5px 5px;
+}
+
+.link-actor {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.link-actor:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+#certificacion {
+    background-color: #2f2f2f;
+    padding: 5px;
+}
+
+#contenedorRecomendaciones {
+    display: contents;
+}
+
+.recomendaciones .card {
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #2f2f2f;
+    width: 180px;
+    cursor: pointer;
+}
+
+.recomendaciones .card:hover {
+    transform: scale(1.05);
+}
+
+.recomendaciones .card-title {
+    font-size: 0.9rem;
+}
