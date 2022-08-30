@@ -58,3 +58,14 @@ async function obtenerFechasYCertificacion(id_movie) {
         return []
     }
 }
+
+async function obtenerBusquedasPalabras(busqueda, texto) {
+    let movieUrl = `${URL_API}/search/${busqueda}?api_key=${API_KEY}&language=en-US&query=${texto}&page=1&include_adult=false`;
+
+    try {
+        let response = await axios.get(movieUrl);
+        return response.data.results
+    } catch (e) {
+        return []
+    }
+}
