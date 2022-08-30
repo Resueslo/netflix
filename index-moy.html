@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix</title>
     <link rel="stylesheet" href="public/src/css/index.css">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="public/src/js/main.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="public/src/images/icono.ico">
 </head>
@@ -18,7 +16,7 @@
             <nav class="main-nav">                
                 <a href="#">Inicio</a>
                 <a href="#">Series</a>
-                <a href="#">Peliculas</a>
+                <a href="#">Generos<select id="genres" onchange="location = 'genre.html?id='+this.value"></select></a>
                 <a href="#">Novedades Populares</a>
                 <a href="#">Mi Lista</a>   
                 <a href="#">Audio y Subtitulos</a>             
@@ -188,4 +186,10 @@
         </div>
     </div>
 </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="public/src/js/queueObject.js"></script>
+<script src="public/src/js/main.js"></script>
 </html>
