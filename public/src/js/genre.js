@@ -1,6 +1,6 @@
 const API_KEY = "f28711faa6dd23ead57c3434bcbea433";
 const imageUrl="https://image.tmdb.org/t/p/w220_and_h330_face";
-const URL_IMAGES = "https://image.tmdb.org/t/p";
+// const URL_IMAGES = "https://image.tmdb.org/t/p";
 const videoUrl="https://www.youtube.com/watch?v="
 const detailUrl= "/detalle.html?id=";
 

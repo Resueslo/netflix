@@ -76,6 +76,19 @@ obtenerPeliculasRelacionadasBusqueda = busqueda => {
   })
 }
 
+getGenreMovies().then((movies)=>{
+  let select=document.getElementById('genres');
+  for(let movie of movies.genres){
+
+      let li =  document.createElement('li');            
+      li.innerHTML = `
+          <a class="dropdown-item" href="genre.html?id=${movie.id}">${movie.name}</a>
+      `;
+      select.appendChild(li);
+  };
+  console.log(movies.genres);
+});
+
 // AL CERRAR MODAL DE BUSQUEDA
 modalBusqueda.addEventListener('hidden.bs.modal', event => {
   let elRecomendaciones = document.getElementById("contenedorRecomendacionesBusqueda");

@@ -3,7 +3,7 @@
 
 const API_KEY = "f28711faa6dd23ead57c3434bcbea433";
 const imageUrl="https://image.tmdb.org/t/p/w220_and_h330_face";
-const URL_IMAGES = "https://image.tmdb.org/t/p";
+// const URL_IMAGES = "https://image.tmdb.org/t/p";
 const videoUrl="https://www.youtube.com/watch?v="
 const detailUrl= "/detalle.html?id=";
 
@@ -39,15 +39,15 @@ const detailUrl= "/detalle.html?id=";
         }
     }
 
-    async function getGenreMovies() {
-        let moviesUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
-        try {
-            let response = await axios.get(moviesUrl);
-            return response.data;
-        } catch (e) {
-            return []
-        }
-    }
+    // async function getGenreMovies() {
+    //     let moviesUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
+    //     try {
+    //         let response = await axios.get(moviesUrl);
+    //         return response.data;
+    //     } catch (e) {
+    //         return []
+    //     }
+    // }
 
 
 
@@ -123,14 +123,14 @@ const detailUrl= "/detalle.html?id=";
         }
     });
 
-     getGenreMovies().then((movies)=>{
-        let select=document.getElementById('genres');
-        for(let movie of movies.genres){
-        var option = new Option(movie.name,movie.id);
-           select.appendChild(option);
-        };
-        console.log(movies.genres);
-    });
+    //  getGenreMovies().then((movies)=>{
+    //     let select=document.getElementById('genres');
+    //     for(let movie of movies.genres){
+    //     var option = new Option(movie.name,movie.id);
+    //        select.appendChild(option);
+    //     };
+    //     console.log(movies.genres);
+    // });
 
 
     
