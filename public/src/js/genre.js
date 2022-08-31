@@ -34,7 +34,7 @@ async function screenGenre(){
     selectInput.value=idGenre;
     let movies = await getMoviesByGenre(idGenre);
     console.log(movies);
-      for(movie of movies) {
+      movies.forEach(movie => {
          if(movie.poster_path) {
             let card =  document.createElement('div');
              card.classList = "card mb-2 poster-pelicula";
@@ -50,9 +50,9 @@ async function screenGenre(){
                 `;
                 divGenre.appendChild(card);   
          }
-     };
+     });
      if(!Number(idGenre)) {
-        window.location = "principal.html";
+        window.location = "index-moy.html";
     }
        
  };
