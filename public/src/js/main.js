@@ -3,9 +3,10 @@
 
 const API_KEY = "f28711faa6dd23ead57c3434bcbea433";
 const imageUrl="https://image.tmdb.org/t/p/w220_and_h330_face";
-// const URL_IMAGES = "https://image.tmdb.org/t/p";
+//const URL_IMAGES = "https://image.tmdb.org/t/p/w500";
 const videoUrl="https://www.youtube.com/watch?v="
 const detailUrl= "/detalle.html?id=";
+
 
     async function getMovie(id) {
     let url =`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`;
@@ -20,20 +21,40 @@ const detailUrl= "/detalle.html?id=";
     }
 
     async function getLatestMovies() {
-        let moviesUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`;
+        let moviesUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US`;
         try {
             let response = await axios.get(moviesUrl);
-            return response.data.results
+            return response.data.results.slice(0,15);
         } catch (e) {
             return []
         }
     }
 
     async function getRatedMovies() {
-        let moviesUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+        let moviesUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US`;
         try {
             let response = await axios.get(moviesUrl);
-            return response.data.results
+            return response.data.results.slice(0,10);
+        } catch (e) {
+            return []
+        }
+    }
+
+    async function getTvShows() {
+        let moviesUrl = `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&language=en-US`;
+        try {
+            let response = await axios.get(moviesUrl);
+            return response.data.results.splice(0,15);
+        } catch (e) {
+            return []
+        }
+    }
+
+    async function getTrending(option) {
+        let moviesUrl = `https://api.themoviedb.org/3/trending/${option}/day?api_key=${API_KEY}&language=en-US`;
+        try {
+            let response = await axios.get(moviesUrl);
+            return response.data.results.splice(0,15);
         } catch (e) {
             return []
         }
@@ -91,37 +112,47 @@ const detailUrl= "/detalle.html?id=";
     }
 
 
-
+    async function createTrending(option,div,url,bool){
+        let shows = await getTrending(option);
+            for (let movie of shows) {
+                const img= url+movie.poster_path;
+                console.log(movie)
+                setImage(movie.id,img,div,'row__poster',bool);
+            }
+         } 
     
   getRatedMovies().then((movies) => {
         let i = 0;
         for (let movie of movies) {
-            console.log(movie);
-            consturl2=URL_IMAGES+"/w500/"+movie.poster_path;
-            const url= imageUrl+movie.poster_path;
-            console.log(url);
-            if(i<10){
+            const url=URL_IMAGES+"/w500/"+movie.poster_path;
                 setImage(i++,"public/src/images/top10/"+i+".png",'top_10','top10',false);
                 setImage(movie.id,url,'top_10','row__poster top10',true);
-               
-            }     
+                   
         }
     });
 
 
 
      getLatestMovies().then((movies) => {
-        let i=0;
-        for (let movie of movies) {
-            if (i<15){
-            console.log(movie)
+            for (let movie of movies) {
             const url= imageUrl+movie.poster_path;
-            console.log(url);
             setImage(movie.id,url,'top_rated','row__poster',true);
-            i++;
-        }
+
         }
     });
+
+    getTvShows().then((shows)=>{
+        console.log(shows);
+         for (let movie of shows) {
+             const url= URL_IMAGES+"/w500/"+movie.poster_path;
+             setImage(movie.id,url,'tv_shows','row__poster',true);
+         }
+         });
+        
+
+
+        createTrending('movie','trending',URL_IMAGES+"/w500/",true);
+        createTrending('tv','series',URL_IMAGES+"/w500/",false);
 
     //  getGenreMovies().then((movies)=>{
     //     let select=document.getElementById('genres');
@@ -129,7 +160,6 @@ const detailUrl= "/detalle.html?id=";
     //     var option = new Option(movie.name,movie.id);
     //        select.appendChild(option);
     //     };
-    //     console.log(movies.genres);
     // });
 
 
