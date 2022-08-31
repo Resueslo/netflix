@@ -9,7 +9,7 @@ font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 /*Contenido*/
 .row__poster{
-    width: 100%;
+    /* width: 100%; */
     object-fit: contain;
     max-height: 170px;
     margin-right:10px ;

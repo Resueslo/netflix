@@ -15,7 +15,7 @@
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="images/logo.png" width="100" alt="Netflix"></a>
+          <a class="navbar-brand" href="index-moy.html"><img src="images/logo.png" width="100" alt="Netflix"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -68,9 +68,35 @@
               </li>
             </ul>
           </div>
-      </nav>
+    </nav>
     <!--Banner-->
-    <div class="banner">
+
+    <section class="section-banner">
+        <img src="https://image.tmdb.org/t/p/original//vvObT0eIWGlArLQx3K5wZ0uT812.jpg" class="img-fluid" alt="...">
+        <div class="pelicula">
+            <div class="contenedor-pelicula">
+                <p class="titulo">JÓVENES <br> BRUJAS</p>
+
+                <p class="descripcion">Una niña recién llegada a una escuela católica ingresa en una pandilla de brujas adolescentes que ejercen poder sobre cualquiera que se les cruce, incluidos sus padres.</p>
+            
+                <div class="botones-banner">
+                    <a href="#" class="reproducir">
+                        <i class="fas fa-play me-2"></i>
+                        Reproducir
+                    </a>
+                    <a href="#" class="mas-info">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard me-2">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM13 10V18H11V10H13ZM12 8.5C12.8284 8.5 13.5 7.82843 13.5 7C13.5 6.17157 12.8284 5.5 12 5.5C11.1716 5.5 10.5 6.17157 10.5 7C10.5 7.82843 11.1716 8.5 12 8.5Z" fill="currentColor">
+                            </path>
+                        </svg>
+                        Más unformación
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <div class="banner">
         <div class="banner__contents">
             <h1 class="banner_title">
                 <img src="public/src/css/banner-logo.webp" alt="banner-logo"/>
@@ -95,15 +121,16 @@
                 </button>
             </div>
             <div class="banner--fadeBottom">
-                <!--En Construccion-->
+                En Construccion
             </div>
         </div>
-    </div>
+    </div> -->
+
     <!--Carousels-->
-    <div>
+    <div class="container-fluid">
         <!--TOP 10-->
         <div class="row">
-            <h4>Las 10 películas más populares en México hoy</h4>
+            <h4 class="mt-2">Las 10 películas más populares en México hoy</h4>
             <div class="row__posters">
                 
                 <div id="top_10" class="container_top10">
