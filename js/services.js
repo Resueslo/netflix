@@ -72,10 +72,21 @@ async function obtenerBusquedasPalabras(busqueda, texto) {
 
 
 async function getGenreMovies() {
-    let moviesUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY_REYNA}&language=en-US`;
+    let moviesUrl = `${URL_API}/genre/movie/list?api_key=${API_KEY_REYNA}&language=en-US`;
     try {
         let response = await axios.get(moviesUrl);
         return response.data;
+    } catch (e) {
+        return []
+    }
+}
+
+async function obtenerVideosPelicula(id) {
+    let movieUrl = `${URL_API}/movie/${id}/videos?api_key=${API_KEY_REYNA}&language=en-US`;
+
+    try {
+        let response = await axios.get(movieUrl);
+        return response.data.results
     } catch (e) {
         return []
     }

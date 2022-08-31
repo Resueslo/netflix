@@ -7,7 +7,7 @@ init = () => {
     idPelicula = urlParams.get('id');
 
     if(!Number(idPelicula)) {
-        window.location = "principal.html";
+        window.location = "index-moy.html";
     }
 
     obtenerDetalle(idPelicula);
@@ -24,12 +24,13 @@ obtenerDetalle = id => {
     let elGeneros = document.getElementById("genero");
     let elFecha = document.getElementById("fecha");
     let elProduccion = document.getElementById("produccion");
+    let btnReproducirBanner = document.getElementById("btnReproducirBanner");
 
     obtenerDetallePelicula(id).then((movie) => {
         console.log(movie)
-        // divBanner.style.backgroundImage = `url(${URL_IMAGES}/original/${movie.backdrop_path})`;
         elImgBanner.setAttribute("src", `${URL_IMAGES}/original/${movie.backdrop_path}`);
         imgBanner.setAttribute("alt", movie.title);
+        btnReproducirBanner.setAttribute("href", `reproductor.html?id=${movie.id}`);
 
         elTituloPelicula.innerText = movie.title;
         elDescripcion.innerText = movie.overview;

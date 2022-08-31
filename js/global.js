@@ -22,7 +22,6 @@ elIconoBusqueda.addEventListener("click", () => {
 obtenerBusqueda = busqueda => {
   let elTitulosRelacionados = document.getElementById("titulosRelacionados");
   obtenerBusquedasPalabras("multi", busqueda).then((respuesta) => {
-    console.log("respuesta", respuesta)
 
     // Abrir modal
     myModal.show();
@@ -50,7 +49,6 @@ obtenerBusqueda = busqueda => {
 obtenerPeliculasRelacionadasBusqueda = busqueda => {
   let elRecomendaciones = document.getElementById("contenedorRecomendacionesBusqueda");
   obtenerBusquedasPalabras("movie", busqueda).then((respuesta) => {
-    console.log("respuesta2", respuesta)
 
     if (respuesta.length) {
       respuesta.forEach(pelicula => {
@@ -87,7 +85,6 @@ getGenreMovies().then((movies)=>{
       `;
       select.appendChild(li);
   };
-  console.log(movies.genres);
 });
 
 // AL CERRAR MODAL DE BUSQUEDA

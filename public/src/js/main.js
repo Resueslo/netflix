@@ -139,6 +139,7 @@ const detailUrl= "/detalle.html?id=";
             setImage(movie.id,url,'top_rated','row__poster',true);
 
         }
+        createBanner(movies)
     });
 
     getTvShows().then((shows)=>{
@@ -163,7 +164,23 @@ const detailUrl= "/detalle.html?id=";
     // });
 
 
-    
+    createBanner = (movies) => {
+        let movie = movies[movies.length-1];
+        let elImgBanner = document.getElementById("imgBanner");
+        let elTituloBanner = document.getElementById("tituloBanner");
+        let elDescBanner = document.getElementById("descBanner");
+        let elBtnReproducirBanner = document.getElementById("btnReproducirBanner");
+        let elBtnInfoBanner = document.getElementById("btnInfoBanner");
+
+        if(movie) {
+            elImgBanner.setAttribute("src", `${URL_IMAGES}/original/${movie.backdrop_path}`);
+            elTituloBanner.innerText = movie.title;
+            elDescBanner.innerText = movie.overview;
+            elBtnReproducirBanner.setAttribute("href", `reproductor.html?id=${movie.id}`);
+            elBtnInfoBanner.setAttribute("href", `detalle.html?id=${movie.id}`);
+        }
+
+    }
    
 
 
