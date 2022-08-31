@@ -21,7 +21,7 @@ obtenerVideoPelicula = id => {
         console.log(videos);
 
         if(videos && videos.length) {
-            let trailer = videos.find(video => video.type == "Traer");
+            let trailer = videos.find(video => video.type == "Trailer");
 
             !trailer ? trailer = videos[0] : null;
 
