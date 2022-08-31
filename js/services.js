@@ -80,3 +80,25 @@ async function getGenreMovies() {
         return []
     }
 }
+
+async function getDetailTV(id) {
+    let movieUrl = `${URL_API}/tv/${id}?api_key=${API_KEY_REYNA}&language=en-US`;
+    try {
+        let response = await axios.get(movieUrl);
+        return response.data
+    } catch (e) {
+        return []
+    }
+}
+
+async function getTrending(option) {
+    let moviesUrl = `https://api.themoviedb.org/3/trending/${option}/day?api_key=${API_KEY_REYNA}&language=en-US`;
+    try {
+        let response = await axios.get(moviesUrl);
+        return response.data.results.splice(0,15);
+    } catch (e) {
+        return []
+    }
+}
+
+

@@ -3,6 +3,7 @@
 
 const API_KEY = "f28711faa6dd23ead57c3434bcbea433";
 const imageUrl="https://image.tmdb.org/t/p/w220_and_h330_face";
+//const URL_IMAGES = "https://image.tmdb.org/t/p/w500";
 const videoUrl="https://www.youtube.com/watch?v="
 const detailUrl= "/detalle.html?id=";
 
@@ -49,9 +50,15 @@ const detailUrl= "/detalle.html?id=";
         }
     }
 
-
-
-
+    async function getTrending(option) {
+        let moviesUrl = `https://api.themoviedb.org/3/trending/${option}/day?api_key=${API_KEY}&language=en-US`;
+        try {
+            let response = await axios.get(moviesUrl);
+            return response.data.results.splice(0,15);
+        } catch (e) {
+            return []
+        }
+    }
 
     // async function getGenreMovies() {
     //     let moviesUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
@@ -114,15 +121,15 @@ const detailUrl= "/detalle.html?id=";
             }
          } 
     
-    getRatedMovies().then((movies) => {
-            let i = 0;
-            for (let movie of movies) {
-                const url=URL_IMAGES+"/w500/"+movie.poster_path;
-                    setImage(i++,"public/src/images/top10/"+i+".png",'top_10','top10',false);
-                    setImage(movie.id,url,'top_10','row__poster top10',true);
-                    
-            }
-        });
+  getRatedMovies().then((movies) => {
+        let i = 0;
+        for (let movie of movies) {
+            const url=URL_IMAGES+"/w500/"+movie.poster_path;
+                setImage(i++,"public/src/images/top10/"+i+".png",'top_10','top10',false);
+                setImage(movie.id,url,'top_10','row__poster top10',true);
+                   
+        }
+    });
 
 
 
@@ -145,7 +152,7 @@ const detailUrl= "/detalle.html?id=";
 
 
         createTrending('movie','trending',URL_IMAGES+"/w500/",true);
-        createTrending('tv','series',URL_IMAGES+"/w500/",true);
+        createTrending('tv','series',URL_IMAGES+"/w500/",false);
 
     //  getGenreMovies().then((movies)=>{
     //     let select=document.getElementById('genres');
@@ -160,5 +167,4 @@ const detailUrl= "/detalle.html?id=";
    
 
 
-    
     
