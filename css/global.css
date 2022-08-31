@@ -1,3 +1,15 @@
+.p-relative {
+    position: relative;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.text-gray {
+    color: #ffffff8c;
+}
+
 #inputBusqueda {
     background-color: #2f2f2f;
     border-color: #2f2f2f;;

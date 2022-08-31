@@ -8,18 +8,6 @@ body {
     opacity: .7;
 }
 
-.p-relative {
-    position: relative;
-}
-
-.text-white {
-    color: #ffffff;
-}
-
-.text-gray {
-    color: #ffffff8c;
-}
-
 .titulo-pelicula {
     position: absolute;
     bottom: 25%;

@@ -78,6 +78,7 @@ obtenerPeliculasRelacionadasBusqueda = busqueda => {
 
 getGenreMovies().then((movies)=>{
   let select=document.getElementById('genres');
+  select.innerHTML = "";
   for(let movie of movies.genres){
 
       let li =  document.createElement('li');            
