@@ -74,6 +74,10 @@ body {
     right: 0;
 }
 
+.link-actor {
+    cursor: pointer;
+}
+
 /* BANNER PRINCIPAL */
 
 .section-banner {
