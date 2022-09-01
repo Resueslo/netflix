@@ -1,7 +1,8 @@
 var array = ['yuriviaos@coppel.com', 'reynaes@coppel.com', 'moisessaninz@coppel.com']
 var password = ['1a23', '1234b', '5678c']
 
-function validarCredenciales() {
+function validarCredenciales(e) {
+    e.preventDefault();
     let usuario = '';
     usuario = document.getElementById("text").value;
     let nip = '';
@@ -27,11 +28,11 @@ function validarCredenciales() {
         }
 
         if (encontroUsuario == 0) {
-            alert("Credenciales invalidas");
+            swal("Credenciales invalidas", "Por favor intenta de nuevo.");
         }
 
     } else {
-        alert("Favor de capturar un Usuario y una contraseña");
+        swal("","Favor de capturar un usuario y una contraseña");
     }
 }
 
