@@ -35,6 +35,7 @@ obtenerBiografiaActor = id => {
     let biography = document.getElementById("biography");
     let fechaNacimiento = document.getElementById("fechaNacimiento");
     let lugarNacimiento = document.getElementById("lugarNacimiento");
+    let imgActor = document.getElementById("imgActor");
 
     obtenerBiografia(id).then((biografia) => {
         let a = document.createElement('a');
@@ -44,6 +45,8 @@ obtenerBiografiaActor = id => {
         biography.appendChild(a);
         fechaNacimiento.innerText = moment(biografia.birthday).format("DD/MM/YYYY");
         lugarNacimiento.innerText = biografia.place_of_birth;
+
+        imgActor.setAttribute("src", `${URL_IMAGES}/original/${biografia.profile_path}`)
 
     })
 }
