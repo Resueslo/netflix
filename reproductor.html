@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix</title>
+    <link rel="icon" type="image/x-icon" href="public/src/images/icono.ico">
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
     integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
     crossorigin="anonymous"></script>
@@ -12,64 +13,61 @@
     <link rel="stylesheet" href="./css/global.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index-moy.html"><img src="images/logo.png" width="100" alt="Netflix"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index-moy.html">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Series</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Generos
-                </a>
-                <ul id="genres" class="dropdown-menu">
-                  
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Novedades populares</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Mi lista</a>
-              </li>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index-moy.html"><img src="images/logo.png" width="100" alt="Netflix"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index-moy.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="content.html?type=tv">Series</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Generos
+            </a>
+            <ul id="genres" class="dropdown-menu">
+  
             </ul>
-    
-            <ul class="navbar-nav mb-2 mb-lg-0 align-items-md-center">
-              <li class="nav-item">
-                <form class="d-flex" role="search">
-                  <input id="inputBusqueda" class="form-control me-2 d-none" type="search" placeholder="Títulos, Actores"
-                    aria-label="Search">
-                  <a class="nav-link" href="#" id="iconoBusqueda"><i class="fas fa-search"></i></a>
-                </form>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
-              </li>
-              <li class="nav-item dropdown ms-2">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img class="" src="images/img-perfil.png" alt="">
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="home.html">Seleccionar Perfil</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
-                </ul>
-              </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="content.html?type=all">Novedades populares</a>
+          </li>
+        </ul>
+  
+        <ul class="navbar-nav mb-2 mb-lg-0 align-items-md-center">
+          <li class="nav-item">
+            <form class="d-flex" role="search">
+              <input id="inputBusqueda" class="form-control me-2 d-none" type="search" placeholder="Títulos, Actores"
+                aria-label="Search">
+              <a class="nav-link" href="#" id="iconoBusqueda"><i class="fas fa-search"></i></a>
+            </form>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+          </li>
+          <li class="nav-item dropdown ms-2">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="" src="images/img-perfil.png" alt="">
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="home.html">Seleccionar Perfil</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
             </ul>
-          </div>
-    </nav>
+          </li>
+        </ul>
+      </div>
+  </nav>
 
-    <div class="container-fluid contenedor-reproductor p-0">
+    <div class="container-fluid contenedor-reproductor mt-6 p-0">
         <div class="d-flex align-content-center flex-wrap">
             <iframe
             id="iframeTrailer"

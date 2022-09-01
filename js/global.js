@@ -36,7 +36,7 @@ obtenerBusqueda = busqueda => {
           a.innerText = `${item.title ? item.title : item.name}${index == respuesta.length - 1 ? '' : ' | '}`;
           a.addEventListener("click", (e) => {
             e.preventDefault();
-            window.location = item.media_type == "movie" ? `detalle.html?id=${item.id}` : `actor.html?id=${item.id}`;
+            window.location = item.media_type == "movie" ? `detalle.html?id=${item.id}` : `actores.html?id=${item.id}`;
           });
 
           elTitulosRelacionados.appendChild(a);

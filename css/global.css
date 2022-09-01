@@ -103,8 +103,7 @@ body {
     color: #ffffff;
     margin: 5vw 0 3vw;
     text-shadow: 2px 2px 4px rgb(0 0 0 / 45%);
-    padding-left: 5vw;
-    width: 50%;
+    padding: 0 5vw;
     line-height: normal;
 }
 
