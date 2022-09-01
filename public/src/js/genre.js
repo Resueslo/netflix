@@ -28,11 +28,18 @@ async function getGenreMovies() {
 async function screenGenre(){
    
     let divGenre = document.getElementById("genre");
+    let elNameGenere = document.getElementById("nameGenere");
+
     const urlParams = new URLSearchParams(window.location.search);
     idGenre = urlParams.get('id');
+    nameGenre = urlParams.get('g');
+
     let selectInput = document.getElementById('genres');
     selectInput.value=idGenre;
     let movies = await getMoviesByGenre(idGenre);
+
+    elNameGenere.innerText = nameGenre;
+
     console.log(movies);
       movies.forEach(movie => {
          if(movie.poster_path) {

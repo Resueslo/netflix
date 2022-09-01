@@ -86,7 +86,7 @@ const detailUrl= "/detalle.html?id=";
             link.setAttribute('href','#');
             return link;
         }
-        link.setAttribute('target','__self');
+        // link.setAttribute('target','__self');
         link.setAttribute('href',detailUrl+id);
         return link;
         

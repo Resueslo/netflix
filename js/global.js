@@ -81,7 +81,7 @@ getGenreMovies().then((movies)=>{
 
       let li =  document.createElement('li');            
       li.innerHTML = `
-          <a class="dropdown-item" href="genre.html?id=${movie.id}">${movie.name}</a>
+          <a class="dropdown-item" href="genre.html?id=${movie.id}&g=${movie.name}">${movie.name}</a>
       `;
       select.appendChild(li);
   };
