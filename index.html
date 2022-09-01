@@ -18,11 +18,11 @@
             <div class="contenedor-login">
                 <div class="login">
                     <h1>Inicia sesión</h1>
-                    <form action="home.html">
-                        <input class="input-netflix" placeholder="Email o número de teléfono" type="text" name="" id="">
-                        <input class="input-netflix" placeholder="Contraseña" type="password" name="" id="">
+                    <form>
+                        <input class="input-netflix" placeholder="Email o número de teléfono" type="text" name="" id="text">
+                        <input class="input-netflix" placeholder="Contraseña" type="password" name="" id="password">
 
-                        <button>Iniciar sesión</button>
+                        <button onclick="validarCredenciales();">Iniciar sesión</button>
 
                         <div class="recordar">
                             <div class="contenedor-check">
@@ -71,5 +71,6 @@
             
         </footer>
     </div>
+    <script src="js/login.js"></script>
 </body>
 </html>
