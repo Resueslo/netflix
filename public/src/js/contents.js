@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const type = urlParams.get('type');
-
+console.log(type);
 function setTitle(type){
     const principal = document.getElementById('title');
     let value = 'Series';
@@ -16,13 +16,13 @@ function setTitle(type){
     let title;
     setTitle(type);
     console.log(movies);
-    for(let movie of movies) {
+    movies.forEach(movie => {
         if(movie.poster_path) {
            let card =  document.createElement('div');
             card.classList = "card mb-2 poster-pelicula";
             card.setAttribute("id", movie.id);
             card.addEventListener("click", e => {
-               window.location = `detalle.html?id=${movie.id}`;
+               window.location = `detalle.html?id=${movie.id}&type=${type}`;
            });
            title=movie.title;
            if(movie.media_type == "tv"){
@@ -36,6 +36,6 @@ function setTitle(type){
                `;
                series.appendChild(card);   
         }
-    }
+    });
 });
 

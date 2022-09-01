@@ -1,10 +1,11 @@
 let idPelicula;
 let elenco;
-
+let tipo;
 init = () => {
     //obtener parametros
     const urlParams = new URLSearchParams(window.location.search);
     idPelicula = urlParams.get('id');
+    tipo = urlParams.get('type');
 
     if(!Number(idPelicula)) {
         window.location = "index-moy.html";
@@ -26,6 +27,19 @@ obtenerDetalle = id => {
     let elProduccion = document.getElementById("produccion");
     let btnReproducirBanner = document.getElementById("btnReproducirBanner");
 
+    if(tipo == 'tv'){
+        getDetailTV(id).then((movie) => {
+            console.log(movie)
+            elImgBanner.setAttribute("src", `${URL_IMAGES}/original/${movie.backdrop_path}`);
+            imgBanner.setAttribute("alt", movie.name);
+            btnReproducirBanner.setAttribute("href", `reproductor.html?id=${movie.id}`);
+            elTituloPelicula.innerText = movie.name;
+            elDescripcion.innerText = movie.overview;
+            elGeneros.innerText = generarString(movie.genres);
+            elFecha.innerText = moment(movie.first_air_date).format("YYYY");
+            elProduccion.innerText = generarString(movie.production_companies);
+        });
+    }else{
     obtenerDetallePelicula(id).then((movie) => {
         console.log(movie)
         elImgBanner.setAttribute("src", `${URL_IMAGES}/original/${movie.backdrop_path}`);
@@ -37,7 +51,9 @@ obtenerDetalle = id => {
         elGeneros.innerText = generarString(movie.genres);
         elFecha.innerText = moment(movie.release_date).format("YYYY");
         elProduccion.innerText = generarString(movie.production_companies);
-    })
+    });
+    }
+    
 }
 
 obtenerCreditos = id => {
@@ -83,6 +99,31 @@ generarElenco = (cast, limitado) => {
 
 obtenerRecomendaciones = id => {
     let elRecomendaciones = document.getElementById("contenedorRecomendaciones");
+    if(tipo=="tv"){
+        obtenerRecomendacionesTV(id).then((recomendaciones) => {
+            console.log("recomendaciones", recomendaciones)
+    
+            recomendaciones.forEach(pelicula => {
+                if(pelicula.poster_path) {
+                    let card =  document.createElement('div');
+                    card.classList = "card mb-2 poster-pelicula";
+                    card.setAttribute("id", pelicula.id);
+                    card.addEventListener("click", e => {
+                        window.location = `detalle.html?id=${pelicula.id}&type=${tipo}`;
+                    });
+    
+                    card.innerHTML = `
+                        <img src="${URL_IMAGES}/w500/${pelicula.poster_path}" alt="${pelicula.name}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">${pelicula.name}</h5>
+                        </div>
+                    `;
+    
+                    elRecomendaciones.appendChild(card);
+                }
+            });
+        });
+    }else{
     obtenerRecomendacionesPeliculas(id).then((recomendaciones) => {
         console.log("recomendaciones", recomendaciones)
 
@@ -104,9 +145,9 @@ obtenerRecomendaciones = id => {
 
                 elRecomendaciones.appendChild(card);
             }
-        })
-
-    })
+        });
+    });
+    }
 }
 
 
@@ -137,7 +178,6 @@ generarString = (array) => {
     }
     return cadena;
 }
-
 
 
 
