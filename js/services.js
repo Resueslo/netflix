@@ -110,3 +110,25 @@ async function obtenerVideosPelicula(id) {
         return []
     }
 }
+
+async function obtenerPeliculas(id_person) {
+    let movieUrl = `${URL_API}/person/${id_person}/movie_credits?api_key=${API_KEY_REYNA}&language=en-US`;
+    console.log("PeliculasPorAutor",movieUrl);
+    try {
+        let response = await axios.get(movieUrl);
+        return response.data
+    } catch (e) {
+        return []
+    }
+}
+
+async function obtenerBiografia(id_person) {
+    let movieUrl = `${URL_API}/person/${id_person}?api_key=${API_KEY_REYNA}&language=en-US`;
+
+    try {
+        let response = await axios.get(movieUrl);
+        return response.data
+    } catch (e) {
+        return []
+    }
+}
