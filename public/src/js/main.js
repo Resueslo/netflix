@@ -1,5 +1,4 @@
 
-//let actor="https://api.themoviedb.org/3/search/person?api_key=9eb4e5199ac559b2a5a63d0b43ea5c76&language=en-US&query="+actor+"&page=1&include_adult=false";
 
 const API_KEY = "f28711faa6dd23ead57c3434bcbea433";
 const imageUrl="https://image.tmdb.org/t/p/w220_and_h330_face";
@@ -53,26 +52,15 @@ const detailUrl= "/detalle.html?id=";
 
 
 
-    // async function getGenreMovies() {
-    //     let moviesUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
-    //     try {
-    //         let response = await axios.get(moviesUrl);
-    //         return response.data;
-    //     } catch (e) {
-    //         return []
-    //     }
-    // }
 
-
-
-    async function setImage(id,url,div,type,bool){
+    async function setImage(id,url,div,style,option){
         const category=document.getElementById(div);
         const image = document.createElement('img');
-        const href = createAHref(id,bool);
+        const href = createAHref(id,option);
         const span = await createSpan(id);
             image.setAttribute('id',id);
             image.setAttribute('src',url);
-            image.setAttribute('class',type);
+            image.setAttribute('class',style);
             category.appendChild(href).appendChild(image);
     }
 
@@ -80,14 +68,9 @@ const detailUrl= "/detalle.html?id=";
 
  
 
-     function createAHref(id,bool){ 
+     function createAHref(id,option){ 
         const link = document.createElement('a');
-        if(!bool){
-            link.setAttribute('href','#');
-            return link;
-        }
-        // link.setAttribute('target','__self');
-        link.setAttribute('href',detailUrl+id);
+        link.setAttribute('href',detailUrl+id+'&type='+option);
         return link;
         
         
@@ -105,21 +88,22 @@ const detailUrl= "/detalle.html?id=";
     }
 
 
-    async function createTrending(option,div,url,bool){
+    async function createTrending(option,div,url){
         let shows = await getTrending(option);
             for (let movie of shows) {
                 const img= url+movie.poster_path;
                 console.log(movie)
-                setImage(movie.id,img,div,'row__poster',bool);
+                setImage(movie.id,img,div,'row__poster',option);
             }
          } 
     
+
     getRatedMovies().then((movies) => {
             let i = 0;
             for (let movie of movies) {
                 const url=URL_IMAGES+"/w500/"+movie.poster_path;
-                    setImage(i++,"public/src/images/top10/"+i+".png",'top_10','top10',false);
-                    setImage(movie.id,url,'top_10','row__poster top10',true);
+                    setImage(i++,"public/src/images/top10/"+i+".png",'top_10','top10','movie');
+                    setImage(movie.id,url,'top_10','row__poster top10','movie');
                     
             }
         });
@@ -129,7 +113,7 @@ const detailUrl= "/detalle.html?id=";
      getLatestMovies().then((movies) => {
             for (let movie of movies) {
             const url= imageUrl+movie.poster_path;
-            setImage(movie.id,url,'top_rated','row__poster',true);
+            setImage(movie.id,url,'top_rated','row__poster','movie');
 
         }
         createBanner(movies)
@@ -139,23 +123,16 @@ const detailUrl= "/detalle.html?id=";
         console.log(shows);
          for (let movie of shows) {
              const url= URL_IMAGES+"/w500/"+movie.poster_path;
-             setImage(movie.id,url,'tv_shows','row__poster',true);
+             setImage(movie.id,url,'tv_shows','row__poster','tv');
          }
          });
         
 
 
-        createTrending('movie','trending',URL_IMAGES+"/w500/",true);
-        createTrending('tv','series',URL_IMAGES+"/w500/",true);
+        createTrending('movie','trending',URL_IMAGES+"/w500/");
+        createTrending('tv','series',URL_IMAGES+"/w500/");
 
-    //  getGenreMovies().then((movies)=>{
-    //     let select=document.getElementById('genres');
-    //     for(let movie of movies.genres){
-    //     var option = new Option(movie.name,movie.id);
-    //        select.appendChild(option);
-    //     };
-    // });
-
+ 
 
     createBanner = (movies) => {
         let movie = movies[movies.length-1];

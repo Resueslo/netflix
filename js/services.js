@@ -132,3 +132,13 @@ async function obtenerBiografia(id_person) {
         return []
     }
 }
+
+async function obtenerRecomendacionesTV(id_movie) {
+    let movieUrl = `${URL_API}/tv/${id_movie}/recommendations?api_key=${API_KEY_REYNA}&language=en-US`;
+    try {
+        let response = await axios.get(movieUrl);
+        return response.data.results
+    } catch (e) {
+        return []
+    }
+}
