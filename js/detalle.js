@@ -74,17 +74,18 @@ generarElenco = (cast, limitado) => {
     for(let index=0; index < cast.length; index++) {
         let actor = cast[index];
         let a =  document.createElement('a');
-        if(!limitado) {
-            a.addEventListener("click", (e) => {
-                window.location = `actores.html?id=${actor.id}`;
-            })
-        }
+        a.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location = `actores.html?id=${actor.id}`;
+        })
         a.classList = "link-actor";
         a.innerText = `${actor.name}${limitado && index == 14 ? '...' : index == cast.length-1 ? '' : ', '} `;
 
         elElenco.appendChild(a);
         
         if(limitado && index == 15) {
+            let a =  document.createElement('a');
+            a.classList = "link-actor";
             a.setAttribute("href", "#")
             a.setAttribute("id", "verMas");
             a.addEventListener("click", (e) => {
