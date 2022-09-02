@@ -22,7 +22,7 @@ function setTitle(type){
             card.classList = "card mb-2 poster-pelicula";
             card.setAttribute("id", movie.id);
             card.addEventListener("click", e => {
-               window.location = `detalle.html?id=${movie.id}&type=${type}`;
+               window.location = `detalle.html?id=${movie.id}&type=${movie.media_type}`;
            });
            title=movie.title;
            if(movie.media_type == "tv"){
