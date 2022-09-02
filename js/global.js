@@ -15,7 +15,6 @@ elIconoBusqueda.addEventListener("click", () => {
     obtenerBusqueda(elinputBusqueda.value);
     obtenerPeliculasRelacionadasBusqueda(elinputBusqueda.value);
   }
-  // const modalToggle = document.getElementById('elinputBusqueda');
 })
 
 //

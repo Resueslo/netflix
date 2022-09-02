@@ -20,7 +20,7 @@ function validarCredenciales(e) {
                     if (i == y) {
                         if (contrasena == nip) {
                             encontroUsuario = 1;
-                            window.open("home.html");
+                            window.location = "home.html";
                         }
                     }
                 }
